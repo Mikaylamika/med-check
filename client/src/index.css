@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #6b727f;
+  -webkit-box-shadow: 0 0 0 30px #ebebfa inset !important;
+}
+
+/* Button Login */
+
+.signbutton {
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  overflow: hidden;
+  transition: color 0.6s ease-in-out;
+}
+
+.signbutton::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: white;
+  transform-origin: center;
+  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.signbutton:hover {
+  cursor: pointer;
+  color: #234c92;
+  font-weight: 800;
+  scale: 1.1;
+}
+
+.signbutton:hover::before {
+  transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15);
+}
+
+/* button 2 */
+
+.signbutton1 {
+  z-index: 1;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+  color: #234c92;
+  padding: 0.5em 1em;
+  outline: none;
+  overflow: hidden;
+  transition: color 0.6s ease-in-out;
+}
+
+.signbutton1::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #234c92;
+  transform-origin: center;
+  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.signbutton1:hover {
+  cursor: pointer;
+  color: white;
+  font-weight: 800;
+  scale: 1.1;
+}
+
+.signbutton1:hover::before {
+  transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15);
+}
+
+.left1,
+.right1 {
+  background: linear-gradient(0deg, #416eb6, #092561);
+  background-size: 150% 150%;
+  animation: animate 5s ease infinite;
+}
+
+.signs {
+  background: linear-gradient(-45deg, #2961ba, #051a46);
+  background-size: 400% 400%;
+
+  animation: animate 5s ease infinite;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.noScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.dropdown-button:hover .dropdown-content {
+  display: flex;
+}
+
+.dropdown-button1:hover .dropdown-content1 {
+  display: flex;
+}
+
+/* islLoding */
+
+.isloading {
+  display: flex;
+  width: 3.5em;
+  height: 3.5em;
+  border: 3px solid transparent;
+  border-top-color: #4284f2;
+  border-bottom-color: #4284f2;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+
+.isloading:before {
+  content: "";
+  display: block;
+  margin: auto;
+  width: 0.75em;
+  height: 0.75em;
+  border: 3px solid #4284f2;
+  border-radius: 50%;
+  animation: pulse 1s alternate ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4284f2;
+  transition: 0.5s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #256eec;
+}
+
+/* Card */
+
+.card {
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 5px;
+  box-shadow: -10px -10px 4px 0px rgba(72, 134, 238, 0.5);
+  border: #4d88ea solid 1px;
+  border-radius: 10px;
+  -webkit-animation-name: shadow-show;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1.5s;
+  /* Safari 4.0 - 8.0 */
+  animation-name: shadow-show;
+  animation-duration: 1.5s;
+  transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1);
+  /* custom */
+}
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.card h5 {
+  animation-name: p-show;
+  animation-duration: 1.5s;
+}
+.card hr {
+  display: block;
+  border: none;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #4886ee;
+  width: 98%;
+  margin: 0px;
+  -webkit-animation-name: line-show;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.3s;
+  /* Safari 4.0 - 8.0 */
+  animation-name: line-show;
+  animation-duration: 0.7s;
+  transition-timing-function: cubic-bezier(0.795, 0, 0.165, 1);
+  /* custom */
+}
+.card p {
+  -webkit-animation-name: p-show;
+  /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1.5s;
+  /* Safari 4.0 - 8.0 */
+  animation-name: p-show;
+  animation-duration: 1.5s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes line-show {
+  from {
+    margin: 0px 100px;
+  }
+  to {
+    margin: 0px;
+  }
+}
+/* Standard syntax */
+@keyframes line-show {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 98%;
+  }
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes p-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Standard syntax */
+@keyframes p-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes shadow-show {
+  from {
+    box-shadow: 0px 0px 0px 0px #e0e0e0;
+  }
+  to {
+    box-shadow: -10px -10px 4px 0px rgba(72, 134, 238, 0.5);
+  }
+}
+/* Standard syntax */
+@keyframes shadow-show {
+  from {
+    box-shadow: 0px 0px 0px 0px #e0e0e0;
+    opacity: 0;
+  }
+  to {
+    box-shadow: -10px -10px 4px 0px rgba(72, 134, 238, 0.5);
+    opacity: 1;
+  }
+}

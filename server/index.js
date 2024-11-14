@@ -15,28 +15,22 @@ app.use(express.json());
 config();
 const __dirname = path.resolve();
 
+(async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB);
+    console.log("MongDB Connected");
+  } catch (error) {
+    console.log({ error });
+  }
+})();
+
 /** API **/
 
 app.use("/api", router);
 
-/** Routes */
 app.use(express.static(path.join(__dirname, "/client/dist")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
-/** Import Connection Files */
-mongoose
-  .connect(process.env.MONGODB)
-  .then(() => {
-    try {
-      app.listen(1337, () => console.log("http://localhost:1337/"));
-      console.log("Database Connected");
-    } catch (error) {
-      console.log({ error: "Cannot Connect To The Server" });
-    }
-  })
-  .catch((error) => {
-    console.log({ error: error });
-  });
 
-
+app.listen(1337, console.log("http://localhost:1337"));
